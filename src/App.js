@@ -1,3 +1,6 @@
+import VideoRecorder from 'react-video-recorder'
+import customActions from './videoRecorder/customActions'
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -5,6 +8,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <VideoRecorder
+            onRecordingComplete={videoBlob => {
+              // Do something with the video...
+              console.log('videoBlob', videoBlob)
+            }}
+            renderActions={customActions}
+          />
+
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
